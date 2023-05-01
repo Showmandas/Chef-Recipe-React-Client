@@ -18,7 +18,7 @@ const Registration = () => {
 <label  class="form-label">Email address</label>
 <input type="email" class="form-control" id="email" name='email' placeholder='enter your email' required/>
 </div>
-<div class="mb-5">
+<div class="mb-3">
 <label  class="form-label">Password</label>
 <input type="password" class="form-control" id="password" name='password' required placeholder='enter your password' />
 </div>
