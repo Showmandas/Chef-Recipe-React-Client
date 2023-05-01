@@ -10,3 +10,8 @@
 #chefPicture{
   height: 300px;
 }
+
+#slideimg{
+  height: 500px;
+  object-fit:fill;
+}
