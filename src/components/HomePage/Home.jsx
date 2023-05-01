@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import Banner from './Banner';
 
 const Home = () => {
     return (
         <div>
-            <h2 className='text-success display-2'>This is home page</h2>
+            <Banner/>
         </div>
     );
 };

@@ -15,13 +15,13 @@ const Header = () => {
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav ms-auto fs-5">
         <li className="nav-item">
-            <NavLink to={'/'} className={({isActive})=> isActive ? "bg-warning-subtle nav-link" : "nav-link"}>Home</NavLink>
+            <NavLink to={'/'} className={({isActive})=> isActive ? "bg-warning-subtle nav-link rounded" : "nav-link"}>Home</NavLink>
         </li>
         <li className="nav-item px-3">
-          <NavLink to={'blog'} className={({isActive})=> isActive ? "bg-warning-subtle nav-link" : "nav-link"}>Blog</NavLink>
+          <NavLink to={'blog'} className={({isActive})=> isActive ? "bg-warning-subtle nav-link rounded" : "nav-link"}>Blog</NavLink>
         </li>
-        <li className="nav-item px-3">
-          <NavLink><button type="button" class="btn btn-outline-info">Log in</button>
+        <li className="nav-item px-3 py-1">
+          <NavLink><button type="button" class="btn btn-outline-warning bg-warning-subtle text-dark fw-bold">Log in</button>
 </NavLink>
         </li>
         
