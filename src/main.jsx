@@ -11,11 +11,13 @@ import Layout from './components/Layout/Layout';
 import Blog from './components/Blog/Blog';
 import Login from './components/Login/Login';
 import Registration from './components/Registration/Registration';
+import ErrorPage from './components/Error404/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout/>,
+    errorElement:<ErrorPage/>,
     children:[
       {
         path:'/',
