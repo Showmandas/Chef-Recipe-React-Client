@@ -11,6 +11,8 @@ const Chefs = () => {
     },[])
     return (
         <div className='container m-auto my-5 py-5'>
+            <h1 className='text-secondary'>Our Chefs</h1>
+                <hr className='w-25 text-warning border-5' />
             <div className="row">
                 {
                     chefData.map(chef=><ChefCards chef={chef} key={chef.id}/>)
