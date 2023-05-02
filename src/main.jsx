@@ -11,7 +11,7 @@ import Home from './components/HomePage/Home';
 import Layout from './components/Layout/Layout';
 import Blog from './components/Blog/Blog';
 import Login from './components/Login/Login';
-import Registration from './components/Registration/Registration';
+import Registration from './components/Registration/Registration'
 import ErrorPage from './components/Error404/ErrorPage';
 // import Chefs from './components/HomePage/ChefSection/Chefs';
 import ChefRecipe from './components/ChefRecipe/ChefRecipe';
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
           {
             path:'chefrecipe/:id',
             element:<PrivateRoute><ChefRecipe/></PrivateRoute>,
-            loader:({params})=>fetch(`http://localhost:5000/chefData/${params.id}`)
+            loader:({params})=>fetch(`https://assignment-10-server-showmandas.vercel.app/chefData/${params.id}`)
           }
       
     ]

@@ -35,11 +35,6 @@ const Login = () => {
         })
     }
 
-    useEffect(()=> {
-        if(user){
-            navigate(from)
-        }
-    },[user])
     //google sign in
     
     

@@ -24,7 +24,7 @@ const RecipeCard = ({recipe}) => {
             </p>
             <p className='fs-5'><span className='fw-bold fs-4'>Cooking Method :</span> {cookingMethod}</p>
             <p><span className='fw-bold fs-4'>Rating : </span>{rating}/5</p>
-            <button className='btn bg-warning-subtle' disabled={accepted} onClick={handleFav}>Add to favourite</button>
+            <button className='btn bg-warning-subtle d-flex justify-content-center align-items-center' disabled={accepted} onClick={handleFav}>Add to favourite &nbsp;<i className="fa-solid fa-star"></i></button>
             <ToastContainer />
         </div>
         </div>

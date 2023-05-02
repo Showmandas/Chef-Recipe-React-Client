@@ -49,11 +49,15 @@ const Registration = () => {
 
    }
 
-   useEffect(()=> {
-    if(user){
-        navigate(from)
-    }
-},[user])
+   googleSignIn()
+   .then(result=>{
+    const googleUser=result.user;
+    console.log(googleUser);
+   }).catch(error=>{
+    const errorMessage=error.message
+    console.log(errorMessage);
+   })
+
     return (
         <div className='container my-5 mb-5 '>
         <div className="row w-100 mx-auto bg-warning">
