@@ -1,11 +1,28 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import jsPDF from 'jspdf'
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const Blog = () => {
+    const pdfGen=()=>{
+        let doc=new jsPDF('landscape','px','a4','false')
+        doc.text(60,60,"In this blog pdf has some questions of react.")
+        doc.text(60,80,"Here has 4 questions.First one is controlled component vs uncontrolled component.")
+        doc.text(60,100,"1.First one is controlled component vs uncontrolled component.")
+        doc.text(60,120,"2.Then the 2nd question is about how to react validate props using prototype")
+        doc.text(60,140,"3.The 3rd question is  node js vs express js")
+        doc.text(60,160,"4.And the last question is what is custom hook and it's use.")
+        doc.save('Blogs.pdf');
+        toast("pdf downloaded!");
+    }
     return (
         <div className='container'>
             <div className="row my-5">
+                <h4>Download pdf from here..</h4>
+                <button onClick={pdfGen} className='btn bg-warning-subtle fw-bold mt-4 mb-5 w-25'>Download PDF file &nbsp; <i className="fa-solid fa-download"></i></button>
+                <ToastContainer />
                 <div className="col-lg-12">
                     <div className="card bg-warning-subtle d-flex flex-column gap-3 p-5">
                         <h2>Q1. Tell us the differences between uncontrolled and controlled components.</h2>
