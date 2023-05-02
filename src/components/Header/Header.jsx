@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Header = () => {
   const {user,logOut}=useContext(AuthContext);

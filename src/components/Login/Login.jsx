@@ -1,14 +1,18 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+// import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+// import app from '../../firebase.config';
+
 
 const Login = () => {
     const [success,setSuccess]=useState('')
     const [error,setError]=useState('')
-    const {signInUser}=useContext(AuthContext);
+    const {signInUser,user}=useContext(AuthContext);
     const location=useLocation();
     const from=location.state?.from?.pathname || '/'
   const navigate=useNavigate()
@@ -30,6 +34,15 @@ const Login = () => {
             setError(errmsg)
         })
     }
+
+    useEffect(()=> {
+        if(user){
+            navigate(from)
+        }
+    },[user])
+    //google sign in
+    
+    
     return (
         <div className='container my-5 mb-5'>
             <div className="row w-50 d-flex justify-content-center mx-auto bg-warning">
@@ -50,10 +63,7 @@ const Login = () => {
 </div>
 <p className='text-success fw-bold text-center fs-4'>{success}</p>
 <p className='text-danger fw-bold text-center fs-4'>{error}</p>
-<div className='d-flex flex-column gap-4 w-50 mb-5'>
-                <button className='btn bg-dark text-white fs-5'><i className="fa-brands fa-google"></i> &nbsp;sign in with Google</button>
-                <button className='btn bg-dark text-white fs-5'><i className="fa-brands fa-github"></i> &nbsp;sign in with Github</button>
-            </div>
+
             </div>
            
         </div>

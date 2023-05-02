@@ -1,14 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../../AuthProvider/AuthProvider';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+
 
 const Registration = () => {
     const[success,setSuccess]=useState('')
     const[error,setError]=useState('')
-   const{user,createUser}=useContext(AuthContext);
+   const{user,createUser,googleSignIn}=useContext(AuthContext);
+   const location=useLocation()
+   const navigate=useNavigate();
+   const from = location?.state?.pathname || '/'
    const handleRegister=(e)=>{
        e.preventDefault();
        setSuccess('');
@@ -43,6 +48,12 @@ const Registration = () => {
 
 
    }
+
+   useEffect(()=> {
+    if(user){
+        navigate(from)
+    }
+},[user])
     return (
         <div className='container my-5 mb-5 '>
         <div className="row w-100 mx-auto bg-warning">
@@ -71,6 +82,10 @@ const Registration = () => {
 <div className='mb-3'>
 <p className='fs-5 text-center'>Already have account.please <Link to={'/login'} className='text-decoration-none'>Log in</Link></p>
 </div>
+<div className='d-flex flex-column gap-4 w-50 mb-5'>
+                <button className='btn bg-dark text-white fs-5' onClick={googleSignIn}><i className="fa-brands fa-google"></i> &nbsp;sign in with Google</button>
+                <button className='btn bg-dark text-white fs-5'><i className="fa-brands fa-github"></i> &nbsp;sign in with Github</button>
+            </div>
         </div>
        
     </div>

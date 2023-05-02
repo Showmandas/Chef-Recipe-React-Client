@@ -15,7 +15,7 @@ import Registration from './components/Registration/Registration';
 import ErrorPage from './components/Error404/ErrorPage';
 // import Chefs from './components/HomePage/ChefSection/Chefs';
 import ChefRecipe from './components/ChefRecipe/ChefRecipe';
-import AuthProvider from './AuthProvider/AuthProvider';
+import AuthProvider from './components/AuthProvider/AuthProvider';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
