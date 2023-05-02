@@ -1,15 +1,53 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Registration = () => {
+    const[success,setSuccess]=useState('')
+    const[error,setError]=useState('')
+   const{user,createUser}=useContext(AuthContext);
+   const handleRegister=(e)=>{
+       e.preventDefault();
+       setSuccess('');
+    const form=e.target;
+    const name=form.name.value;
+    const email=form.email.value;
+    const password=form.password.value;
+    const photoUrl=form.photoUrl.value;
+
+    console.log(name,email,photoUrl);
+
+
+    if(password.length < 6){
+        setError('Password must be at least 6 character!');
+        return;
+    }
+
+
+    createUser(email,password)
+    .then(result=>{
+        const regUser=result.user;
+        setSuccess('Registration Successful');
+        e.target.reset();
+        setError('')
+        console.log(regUser)
+    })
+    .catch(error=>{
+        const errMsg=error.message;
+        console.log(errMsg);
+        // setError(errMsg);
+    })
+
+
+   }
     return (
-        <div className='container my-5 mb-5'>
-        <div className="row w-50 d-flex justify-content-center mx-auto bg-warning">
+        <div className='container my-5 mb-5 '>
+        <div className="row w-100 mx-auto bg-warning">
             <h2 className='p-3 text-center'>Please Register</h2>
-        <form className='w-100 bg-warning p-5 mb-3'>
+        <form className='w-100 bg-warning p-5 mb-3' onSubmit={handleRegister}>
 <div class="mb-3">
 <label  className="form-label">Name</label>
 <input type="text" class="form-control" id="name" name='name' placeholder='enter your name' required/>
@@ -28,6 +66,8 @@ const Registration = () => {
 </div>
 <button type="submit" class="btn bg-warning-subtle fw-bold d-flex w-25 justify-content-center align-items-center mx-auto fs-5">Register</button>
 </form>
+<p className='text-success fw-bold text-center fs-4'>{success}</p>
+<p className='text-danger fw-bold text-center fs-4'>{error}</p>
 <div className='mb-3'>
 <p className='fs-5 text-center'>Already have account.please <Link to={'/login'} className='text-decoration-none'>Log in</Link></p>
 </div>
