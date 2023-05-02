@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
@@ -16,6 +17,7 @@ const ChefRecipe = () => {
     },[])
     return (
         <div>
+            
             <ChefDetails detail={chefDetails} key={chefDetails.id}/>
         </div>
     );
