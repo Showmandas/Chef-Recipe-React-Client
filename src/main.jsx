@@ -12,6 +12,8 @@ import Blog from './components/Blog/Blog';
 import Login from './components/Login/Login';
 import Registration from './components/Registration/Registration';
 import ErrorPage from './components/Error404/ErrorPage';
+// import Chefs from './components/HomePage/ChefSection/Chefs';
+import ChefRecipe from './components/ChefRecipe/ChefRecipe';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,13 @@ const router = createBrowserRouter([
         path:'/register',
         element:<Registration/>
       },
+    
+          {
+            path:'chefrecipe/:id',
+            element:<ChefRecipe/>,
+            loader:({params})=>fetch(`http://localhost:5000/chefData/${params.id}`)
+          }
+      
     ]
   },
 ]);

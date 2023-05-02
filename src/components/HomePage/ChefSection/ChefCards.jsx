@@ -15,7 +15,7 @@ const ChefCards = ({chef}) => {
           <p class="card-text">Years of Experience: {experience}</p>
           <p class="card-text">Number of recipes: {recipes}</p>
           <p class="card-text"><i className="fa-solid fa-thumbs-up"></i> : {likes}</p>
-          <Link  class="btn bg-warning-subtle fw-bold d-flex justify-content-center align-items-center mb-3">
+          <Link to={`/chefrecipe/${id}`} class="btn bg-warning-subtle fw-bold d-flex justify-content-center align-items-center mb-3">
             View Recipes
           </Link>
         </div>
