@@ -6,7 +6,7 @@
     "recipes": 75,
     "likes": 1500,
     "bio": "Passionate about preserving traditional flavors. Known for creating aromatic biryanis that are loved by all.Specializes in cooking traditional Bengali fish dishes. Famous for his mouth-watering Shorshe Ilish.",
-    "recipesItem": [{
+    "recipeItem": [{
         "recipeName": "Chicken Biryani",
         "ingredients": "Chicken, Basmati Rice, Onion, Spices, Yogurt",
         "cookingMethod": "1. Marinate chicken with spices and yogurt. 2. Cook rice separately. 3. Sauté onions and spices. 4. Layer rice and chicken. 5. Cook on low heat. 6. Serve hot.",
