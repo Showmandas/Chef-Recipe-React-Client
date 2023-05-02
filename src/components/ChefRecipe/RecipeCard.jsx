@@ -10,18 +10,19 @@ const RecipeCard = ({recipe}) => {
 
         <div className='card shadow'>
             <h5>Recipe Name:{recipeName}</h5>
-            <ul>
+            <p>
                 ingradients
                 {
                     // ingradients?.map((ingradient,index)=>{
                     //     <li key={index}>{ingradient}</li>
                     //     // console.log(ingradient)
                     // })
-                    ingradients?.forEach(ingradient=>{
-                        <li>{ingradient}</li>
-                    })
+                    // ingradients?.forEach(ingradient=>{
+                    //     <li>{ingradient}</li>
+                    // })
+                    
                 }
-            </ul>
+            </p>
             <p>Cooking Method:{cookingMethod}</p>
             <p>Rating:{rating}</p>
         </div>
