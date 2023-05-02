@@ -1,9 +1,17 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Header = () => {
+  const {user,logOut}=useContext(AuthContext);
+  console.log(user?.displayName);
+  const handleLogout=()=>{
+    logOut()
+    .then()
+    .catch(error=>console.log(error))
+  }
     return (
         <div className='container'>
             <nav className="navbar navbar-expand-lg bg-body-tertiary p-2">
@@ -20,9 +28,11 @@ const Header = () => {
         <li className="nav-item px-3">
           <NavLink to={'blog'} className={({isActive})=> isActive ? "text-warning nav-link rounded" : "nav-link"}>Blog</NavLink>
         </li>
+        <li>{user && <i title={user?.email} className="fa-solid fa-user mt-3 px-3"></i>}</li>
         <li className="nav-item px-3 py-1">
-          <NavLink to={'login'}><button type="button" class="btn btn-outline-warning bg-warning-subtle text-dark fw-bold">Log in</button>
-</NavLink>
+          {user ? <NavLink onClick={handleLogout}><button type="button" class="btn btn-outline-warning bg-warning-subtle text-dark fw-bold">Logout</button></NavLink> :<NavLink to={'login'}><button type="button" class="btn btn-outline-warning bg-warning-subtle text-dark fw-bold">Log in</button>
+</NavLink>}
+          
         </li>
         
       </ul>

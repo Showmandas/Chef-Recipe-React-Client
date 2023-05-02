@@ -1,15 +1,40 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
+    const [success,setSuccess]=useState('')
+    const [error,setError]=useState('')
+    const {signInUser}=useContext(AuthContext);
+    const location=useLocation();
+    const from=location.state?.from?.pathname || '/'
+  const navigate=useNavigate()
+    const handleLogin=(e)=>{
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        signInUser(email,password)
+        .then(result=>{
+            const logUser=result.user;
+            console.log(logUser);
+            setSuccess('Log in successful')
+            navigate(from,{replace:true})
+        })
+        .catch(error=>{
+            const errmsg=error.message;
+            console.log(errmsg);
+            setError(errmsg)
+        })
+    }
     return (
         <div className='container my-5 mb-5'>
             <div className="row w-50 d-flex justify-content-center mx-auto bg-warning">
                 <h2 className='p-3 text-center'>Please Log in</h2>
-            <form className='w-100 bg-warning p-5 mb-3'>
+            <form className='w-100 bg-warning p-5 mb-3' onSubmit={handleLogin}>
   <div class="mb-3">
     <label for="exampleInputEmail1" className="form-label">Email address</label>
     <input type="email" className="form-control" id="email" name='email' placeholder='enter your email' required/>
@@ -23,6 +48,8 @@ const Login = () => {
 <div className='mb-3'>
     <p className='fs-5 text-center'>Don't have account ? please <Link to={'/register'} className='text-decoration-none'>Register</Link></p>
 </div>
+<p className='text-success fw-bold text-center fs-4'>{success}</p>
+<p className='text-danger fw-bold text-center fs-4'>{error}</p>
 <div className='d-flex flex-column gap-4 w-50 mb-5'>
                 <button className='btn bg-dark text-white fs-5'><i className="fa-brands fa-google"></i> &nbsp;sign in with Google</button>
                 <button className='btn bg-dark text-white fs-5'><i className="fa-brands fa-github"></i> &nbsp;sign in with Github</button>
