@@ -3,6 +3,7 @@ import React from 'react';
 import Lottie from "lottie-react";
 import chef from "../../assets/chef.json"
 
+
 const Banner = () => {
     return (
         <div className='container'>

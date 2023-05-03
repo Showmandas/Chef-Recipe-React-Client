@@ -12,9 +12,10 @@ const Registration = () => {
     const[success,setSuccess]=useState('')
     const[error,setError]=useState('')
    const{updateUserData,user,createUser,googleSignIn}=useContext(AuthContext);
-   const location=useLocation()
-   const navigate=useNavigate();
-   const from = location?.state?.pathname || '/'
+//    const location=useLocation()
+//    const navigate=useNavigate();
+//    const from = location?.state?.pathname || '/'
+
    const handleRegister=(e)=>{
        e.preventDefault();
        setSuccess('');
@@ -26,7 +27,7 @@ const Registration = () => {
 
     console.log(name,email,photoUrl);
 
-
+// validation
     if(password.length < 6){
         setError('Password must be at least 6 character!');
         return;
@@ -41,6 +42,7 @@ const Registration = () => {
         e.target.reset();
         setError('')
         console.log(regUser)
+        //display image in navbar
         updateUserData(result.user,name,photoUrl)
     })
     .catch(error=>{
