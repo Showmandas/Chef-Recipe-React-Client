@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-unknown-property */
@@ -10,7 +11,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 const Registration = () => {
     const[success,setSuccess]=useState('')
     const[error,setError]=useState('')
-   const{user,createUser,googleSignIn}=useContext(AuthContext);
+   const{updateUserData,user,createUser,googleSignIn}=useContext(AuthContext);
    const location=useLocation()
    const navigate=useNavigate();
    const from = location?.state?.pathname || '/'
@@ -32,6 +33,7 @@ const Registration = () => {
     }
 
 
+    // user creation 
     createUser(email,password)
     .then(result=>{
         const regUser=result.user;
@@ -39,6 +41,7 @@ const Registration = () => {
         e.target.reset();
         setError('')
         console.log(regUser)
+        updateUserData(result.user,name,photoUrl)
     })
     .catch(error=>{
         const errMsg=error.message;
@@ -48,6 +51,8 @@ const Registration = () => {
 
 
    }
+
+
 
    googleSignIn()
    .then(result=>{

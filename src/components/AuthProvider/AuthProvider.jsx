@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { createContext } from 'react';
-import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword, onAuthStateChanged, signOut,GoogleAuthProvider,signInWithPopup } from "firebase/auth";
+import {updateProfile, getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword, onAuthStateChanged, signOut,GoogleAuthProvider,signInWithPopup } from "firebase/auth";
 import app from '../../firebase.config';
 
 export const AuthContext=createContext(null);
@@ -14,6 +14,19 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
     const googleProvider = new GoogleAuthProvider();
 
+    //update profile 
+    const updateUserData=(user,name,photoUrl)=>{
+       return updateProfile(user,{
+        displayName:name,
+        photoURL:photoUrl
+       })
+       .then(()=>{
+        console.log('user update')
+       })
+       .catch(error=>{
+        console.log(error.message)
+       })
+    }
     //registration
     const createUser=(email,password)=>{
         setLoading(true);
@@ -50,6 +63,7 @@ const AuthProvider = ({children}) => {
         logOut,
         googleSignIn,
         loading,
+        updateUserData,
     }
 
     return (

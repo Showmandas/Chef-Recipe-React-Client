@@ -28,7 +28,7 @@ const Header = () => {
         <li className="nav-item px-3">
           <NavLink to={'blog'} className={({isActive})=> isActive ? "text-warning nav-link rounded" : "nav-link"}>Blog</NavLink>
         </li>
-        <li>{user && <i title={user?.email} className="fa-solid fa-user mt-3 px-3"></i>}</li>
+        <li>{user && <img src={user?.photoURL} title={user?.displayName} className="img-fluid" id="userImg"/>}</li>
         <li className="nav-item px-3 py-1">
           {user ? <NavLink onClick={handleLogout}><button type="button" class="btn btn-outline-warning bg-warning-subtle text-dark fw-bold">Logout</button></NavLink> :<NavLink to={'login'}><button type="button" class="btn btn-outline-warning bg-warning-subtle text-dark fw-bold">Log in</button>
 </NavLink>}
