@@ -53,7 +53,7 @@ const Registration = () => {
             })
     }
 
-
+//   google sign in 
     const googleLogIn = () => {
         googleSignIn()
             .then(result => {
@@ -65,15 +65,20 @@ const Registration = () => {
             })
     }
 
+    //github sign in
 
-    //    githubSignIn()
-    //    .then(result=>{
-    //     const googleUser=result.user;
-    //     console.log(googleUser);
-    //    }).catch(error=>{
-    //     const errorMessage=error.message
-    //     console.log(errorMessage);
-    //    })
+    const githubLogIn = () => {
+        githubSignIn()
+            .then(result => {
+                const githubUser = result.user;
+                console.log(githubUser);
+            }).catch(error => {
+                const errorMessage = error.message
+                console.log(errorMessage);
+            })
+    }
+
+
 
 
 
@@ -108,7 +113,7 @@ const Registration = () => {
                 </div>
                 <div className='d-flex flex-column gap-4 justify-content-center align-items-center mb-5'>
                     <button className='btn bg-dark text-white fs-5' onClick={googleLogIn}><i className="fa-brands fa-google"></i> &nbsp;sign in with Google</button>
-                    <button className='btn bg-dark text-white fs-5' ><i className="fa-brands fa-github"></i> &nbsp;sign in with Github</button>
+                    <button className='btn bg-dark text-white fs-5' onClick={githubLogIn} ><i className="fa-brands fa-github"></i> &nbsp;sign in with Github</button>
                 </div>
             </div>
 
