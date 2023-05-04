@@ -13,10 +13,10 @@ const Banner = () => {
                     <p className='text-secondary'>Bangla food is a rich culinary tradition from Bangladesh. It includes dishes like biryani, korma, and fish curry, often accompanied by rice and lentils. The cuisine features a blend of aromatic spices, herbs, and flavors, creating a diverse and delicious dining experience.</p>
                 </div>
                 <div className="col-lg-6 col-12">
-                <Lottie animationData={chef} loop={true} />
+                    <Lottie animationData={chef} loop={true} />
                 </div>
             </div>
-            
+
         </div>
     );
 };

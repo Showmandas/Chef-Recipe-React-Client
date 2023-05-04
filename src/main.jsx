@@ -21,32 +21,32 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout/>,
-    errorElement:<ErrorPage/>,
-    children:[
+    element: <Layout />,
+    errorElement: <ErrorPage />,
+    children: [
       {
-        path:'/',
-        element:<Home/>
+        path: '/',
+        element: <Home />
       },
       {
-        path:'/blog',
-        element:<Blog/>
+        path: '/blog',
+        element: <Blog />
       },
       {
-        path:'/login',
-        element:<Login/>
+        path: '/login',
+        element: <Login />
       },
       {
-        path:'/register',
-        element:<Registration/>
+        path: '/register',
+        element: <Registration />
       },
-    
-          {
-            path:'chefrecipe/:id',
-            element:<PrivateRoute><ChefRecipe/></PrivateRoute>,
-            loader:({params})=>fetch(`https://assignment-10-server-showmandas.vercel.app/chefData/${params.id}`)
-          }
-      
+
+      {
+        path: 'chefrecipe/:id',
+        element: <PrivateRoute><ChefRecipe /></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://assignment-10-server-showmandas.vercel.app/chefData/${params.id}`)
+      }
+
     ]
   },
 ]);
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>,
 )

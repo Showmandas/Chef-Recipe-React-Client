@@ -5,13 +5,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LazyLoad from 'react-lazy-load';
 
-const ChefCards = ({chef}) => {
-    const{id,name,picture,experience,likes,recipes}=chef;
+const ChefCards = ({ chef }) => {
+  const { id, name, picture, experience, likes, recipes } = chef;
   return (
     <div className="col-lg-4 col-12">
       <div class="card shadow m-2 mb-5">
         <LazyLoad>
-        <img src={picture} class="img-fluid w-100" id="chefPicture" alt="chefs images" />
+          <img src={picture} class="img-fluid w-100" id="chefPicture" alt="chefs images" />
         </LazyLoad>
         <div class="card-body">
           <h5 class="card-title fs-4 text-secondary fw-bold">{name}</h5>
