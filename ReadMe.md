@@ -7,4 +7,4 @@
 - In this site hava also authentication system likes(Login,registration).And you can't see recipes or details without login to the site.
 
   ### Live site link : 
-  [Click on this Live Site link](https://chef-auth-system.web.app/) 
+  [Click on this Live Site link](https://chef-auth-system.web.app) 
